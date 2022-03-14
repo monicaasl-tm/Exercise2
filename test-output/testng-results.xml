@@ -2,20 +2,20 @@
 <testng-results ignored="10" total="11" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-03-12T20:36:45 PST" name="Default suite" finished-at="2022-03-12T20:36:55 PST" duration-ms="10399">
+  <suite started-at="2022-03-13T16:46:10 PDT" name="Default suite" finished-at="2022-03-13T16:46:20 PDT" duration-ms="10574">
     <groups>
     </groups>
-    <test started-at="2022-03-12T20:36:45 PST" name="Default test" finished-at="2022-03-12T20:36:55 PST" duration-ms="10399">
+    <test started-at="2022-03-13T16:46:10 PDT" name="Default test" finished-at="2022-03-13T16:46:20 PDT" duration-ms="10574">
       <class name="Tests.Tests">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:Tests.Tests@6580cfdd]" started-at="2022-03-12T20:36:45 PST" name="setUp" finished-at="2022-03-12T20:36:54 PST" duration-ms="9694" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:Tests.Tests@4facf68f]" started-at="2022-03-13T16:46:10 PDT" name="setUp" finished-at="2022-03-13T16:46:19 PDT" duration-ms="9440" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="iFrame()[pri:0, instance:Tests.Tests@6580cfdd]" started-at="2022-03-12T20:36:54 PST" name="iFrame" finished-at="2022-03-12T20:36:55 PST" duration-ms="491" status="PASS">
+        <test-method signature="suggestionClass()[pri:0, instance:Tests.Tests@4facf68f]" started-at="2022-03-13T16:46:19 PDT" name="suggestionClass" finished-at="2022-03-13T16:46:20 PDT" duration-ms="960" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- iFrame -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:Tests.Tests@6580cfdd]" started-at="2022-03-12T20:36:55 PST" name="tearDown" finished-at="2022-03-12T20:36:55 PST" duration-ms="178" status="PASS">
+        </test-method> <!-- suggestionClass -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Tests.Tests@4facf68f]" started-at="2022-03-13T16:46:20 PDT" name="tearDown" finished-at="2022-03-13T16:46:20 PDT" duration-ms="149" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

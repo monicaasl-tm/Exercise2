@@ -50,9 +50,11 @@ public class Tests {
 	@Test
 	public void suggestionClass() {
 		this.home.suggestionClass.click();
-		this.home.suggestionClass.sendKeys("Mexico");
+		this.home.suggestionClass.sendKeys("Mex");
 		new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(home.selectMexico));
 		this.home.selectMexico.click();
+		String value = this.home.suggestionClass.getAttribute("value");
+		Assert.assertTrue(value.equals("Mexico"));
 
 	}
 

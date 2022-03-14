@@ -6,8 +6,8 @@
       <class name="Tests.Tests">
         <methods>
           <include name="tearDown"/>
-          <include name="iFrame"/>
           <include name="setUp"/>
+          <include name="suggestionClass"/>
         </methods>
       </class> <!-- Tests.Tests -->
     </classes>
