@@ -9,16 +9,11 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 
-	private WebDriver driver;
-	
-	//Page Factory Web Elements
-	public HomePage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
+	public HomePage(WebDriver driver) { 
+		PageFactory.initElements(driver, this); 
 	}
 	
-	//Mapeo
-	@FindBy(xpath = "//input[@value='radio2']")
+	@FindBy(xpath = "//input[@value='radio2']") 
 	public WebElement radioButton2;
 	
 	@FindBy(xpath = "//input[@id='autocomplete']")
@@ -59,8 +54,6 @@ public class HomePage {
 	
 	@FindBy(xpath = "//input[@id='confirmbtn']")
 	public WebElement clickConfirm;
-	
-	//
 		
 	@FindBy(xpath = "//table[@name=\"courses\"]/tbody/child::*" )
 	public List<WebElement> rows;
@@ -71,7 +64,6 @@ public class HomePage {
 	@FindBy(xpath = "//div[contains(text(),'Total Amount Collected: 296')]")
 	public WebElement totalAmount;
 	
-	//
 	@FindBy(xpath = "//input[@id='displayed-text']")
 	public WebElement inputDisplayedText;
 	

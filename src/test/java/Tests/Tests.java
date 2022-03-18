@@ -1,7 +1,5 @@
 package Tests;
 
-import static org.testng.Assert.assertNotNull;
-
 import java.time.Duration;
 import java.util.List;
 
@@ -21,35 +19,36 @@ import Pages.HomePage;
 
 public class Tests {
 
-	public String baseURL = "https://rahulshettyacademy.com/AutomationPractice/";
+	private String baseURL = "https://rahulshettyacademy.com/AutomationPractice/"; 
 
-	private String driverPath = "src/test/resources/drivers/chromedriver";
-	private WebDriver driver;
-	private HomePage home;
+	private String driverPath = "src/test/resources/drivers/chromedriver"; 
+	private WebDriver driver; 
+	private HomePage home; 
 
-	@BeforeTest
-	public void setUp() {
-		System.setProperty("webdriver.chrome.driver", driverPath);
-		this.driver = new ChromeDriver();
+	@BeforeTest 
+	public void setUp() { 
+		System.setProperty("webdriver.chrome.driver", driverPath); 
+		this.driver = new ChromeDriver(); 
 		this.home = new HomePage(this.driver);
-		this.driver.get(baseURL);
-		this.driver.manage().window().maximize();
+		this.driver.get(baseURL); 
+		this.driver.manage().window().maximize(); 
 	}
 
 	// Radio Button Example
 	@Test
-	public void radioButton() {
-
+	public void radioButton() { 
+		this.driver.get(baseURL);
+		new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(home.radioButton2));
 		this.home.radioButton2.click();
 
-		Assert.assertTrue(this.home.radioButton2.isSelected());
-		System.out.println("Radio button is selected: " + home.radioButton2.isSelected());
+		Assert.assertTrue(this.home.radioButton2.isSelected()); 
 	}
 
 	// Suggestion Class Example
 	@Test
 	public void suggestionClass() {
-		this.home.suggestionClass.click();
+		this.driver.get(baseURL);
+		new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(home.suggestionClass));
 		this.home.suggestionClass.sendKeys("Mex");
 		new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(home.selectMexico));
 		this.home.selectMexico.click();
@@ -69,24 +68,30 @@ public class Tests {
 
 		this.home.option2.click();
 		Assert.assertTrue(this.home.option2.isDisplayed());
-
+	}
+		
+	// Checkbox Example
+	@Test
+	public void checkboxExample() {
 		this.home.selectCheckbox1.click();
-		Assert.assertTrue(this.home.selectCheckbox1.isSelected());
-
 		this.home.selectCheckbox2.click();
+		Assert.assertTrue(this.home.selectCheckbox1.isSelected());
 		Assert.assertTrue(this.home.selectCheckbox2.isSelected());
 
 	}
+	
 
 	// Switch Window Example
 	@Test
 	public void switchWindow() {
+		this.driver.get(baseURL);
+		new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(home.openWindow));
 		this.home.openWindow.click();
-
-		String originalWindow = this.driver.getWindowHandle();
-		for (String windowHandle : driver.getWindowHandles()) {
-			if (!originalWindow.contentEquals(windowHandle)) {
-				driver.switchTo().window(windowHandle);
+		
+		String originalWindow = this.driver.getWindowHandle(); 
+		for (String windowHandle : driver.getWindowHandles()) { 
+			if (!originalWindow.contentEquals(windowHandle)) { 
+				driver.switchTo().window(windowHandle); 
 				break;
 			}
 		}
@@ -102,6 +107,8 @@ public class Tests {
 	// Switch Tab Example
 	@Test
 	public void switchTab() {
+		this.driver.get(baseURL);
+		new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(home.openTab));
 		this.home.openTab.click();
 
 		String originalWindow = this.driver.getWindowHandle();
@@ -137,10 +144,10 @@ public class Tests {
 	// Web Table Example
 	@Test
 	public void webTable() {
-		this.home.rows.forEach(row -> {
-			List<WebElement> rowData = row.findElements(By.tagName("td"));
-			if (rowData.size() > 0) {
-				Assert.assertEquals("Rahul Shetty", rowData.get(0).getText());
+		this.home.rows.forEach(row -> { 
+			List<WebElement> rowData = row.findElements(By.tagName("td")); 
+			if (rowData.size() > 0) { 
+				Assert.assertEquals("Rahul Shetty", rowData.get(0).getText()); 
 			}
 
 		});
@@ -151,16 +158,16 @@ public class Tests {
 	@Test
 	public void webTableFixedHeader() {
 		int totalAmount = 0;
-		for (WebElement row : this.home.fixRows) {
-			List<WebElement> rowData = row.findElements(By.tagName("td"));
-			if (rowData.size() > 0) {
+		for (WebElement row : this.home.fixRows) { 
+			List<WebElement> rowData = row.findElements(By.tagName("td")); 
+			if (rowData.size() > 0) { 
 				int amount = Integer.parseInt(rowData.get(3).getText());
-				Assert.assertTrue(amount > 0);
-				totalAmount += amount;
+				Assert.assertTrue(amount > 0); 
+				totalAmount += amount; 
 			}
 		}
-		String totalString = String.valueOf(totalAmount);
-		Assert.assertTrue(this.home.totalAmount.getText().contains(totalString));
+		String totalString = String.valueOf(totalAmount); 
+		Assert.assertTrue(this.home.totalAmount.getText().contains(totalString)); 
 
 	}
 
@@ -178,6 +185,8 @@ public class Tests {
 	// Mouse Hover Example
 	@Test
 	public void mouseHover() {
+		this.driver.get(baseURL);
+		new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(home.mouseHover));
 		Actions actions = new Actions(this.driver);
 		actions.moveToElement(this.home.mouseHover);
 		actions.click().build().perform();
